@@ -14,7 +14,7 @@ module OmniAuth
       option :client_options, {
         :site => 'https://graph.facebook.com',
         :authorize_url => "https://www.facebook.com/dialog/oauth",
-        :token_url => 'oauth/access_token'
+        :token_url => 'oauth2/access_token'
       }
 
       option :token_params, {
@@ -55,7 +55,8 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('me', info_options).parsed || {}
+        #@raw_info ||= access_token.get('me', info_options).parsed || {}
+        @raw_info = {}
       end
 
       def info_options
